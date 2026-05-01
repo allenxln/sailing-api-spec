@@ -38,3 +38,10 @@ codes:
     msg_zh: 服务器内部错误
     msg_en: internal server error
     http: 500
+
+  - code: 20001
+    name: PackageNotFound
+    range: words_core
+    msg_zh: 词包不存在
+    msg_en: package not found
+    http: 404

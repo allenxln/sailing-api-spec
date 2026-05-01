@@ -14,6 +14,8 @@ var (
 	BadRequest = errors.New(4001, "bad request")
 	// InternalServerError: 服务器内部错误 (internal server error)
 	InternalServerError = errors.New(5001, "internal server error")
+	// PackageNotFound: 词包不存在 (package not found)
+	PackageNotFound = errors.New(20001, "package not found")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -27,6 +29,8 @@ func HTTPStatus(code int) int {
 		return 400
 	case 5001:
 		return 500
+	case 20001:
+		return 404
 	default:
 		return 500
 	}
