@@ -54,7 +54,10 @@ func main() {
 	// Stable ordering makes generated diffs reviewable.
 	sort.Slice(spec.Codes, func(i, j int) bool { return spec.Codes[i].Code < spec.Codes[j].Code })
 
-	mustRender(goTmpl, "out/go/codes/codes.gen.go", spec, nil)
+	// Go lives at repo root so downstream services can
+	//   go get github.com/allenxln/sailing-api-spec/codes@vX.Y.Z
+	// without needing a separate nested go.mod + tag.
+	mustRender(goTmpl, "codes/codes.gen.go", spec, nil)
 	mustRender(dartTmpl, "out/dart/lib/error_code.dart", spec, template.FuncMap{
 		"lowerCamel": lowerCamel,
 	})

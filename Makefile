@@ -13,12 +13,10 @@ check: gen
 	@git diff --exit-code -- out/ \
 	  || (echo "ERROR: out/ is out of sync with codes.yaml. Run 'make gen' and commit."; exit 1)
 
-# Verify the generated Go package compiles on its own. Catches template drift
+# Verify the generated Go package compiles. Catches template drift
 # (e.g. syntax error in a template) before downstream services pull the tag.
-# out/go/ is a self-contained Go submodule so downstream services can
-# `go get github.com/allenxln/sailing-api-spec/out/go@vX.Y.Z` directly.
 test-go: gen
-	cd out/go && go mod tidy && go build ./...
+	go build ./codes/...
 
 fmt:
 	gofmt -w gen/

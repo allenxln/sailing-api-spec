@@ -16,7 +16,7 @@ codes.yaml                       ← humans edit this
     │
     │  make gen
     ▼
-out/go/codes/codes.gen.go        ← Go backend imports this
+codes/codes.gen.go               ← Go backend imports this
 out/dart/lib/error_code.dart     ← Flutter app imports this
 out/docs/CODES.md                ← PM / QA / new hires read this
 ```
@@ -38,11 +38,11 @@ out/docs/CODES.md                ← PM / QA / new hires read this
 ### Go backend
 
 ```bash
-go get github.com/allenxln/sailing-api-spec/out/go@vX.Y.Z
+go get github.com/allenxln/sailing-api-spec/codes@vX.Y.Z
 ```
 
 ```go
-import "github.com/allenxln/sailing-api-spec/out/go/codes"
+import "github.com/allenxln/sailing-api-spec/codes"
 
 func (l *FooLogic) Foo(req *FooReq) (*FooResp, error) {
     if missing {
@@ -90,8 +90,9 @@ if (code == ErrorCode.loginStatusExpired) {
 │       ├── go.tmpl
 │       ├── dart.tmpl
 │       └── md.tmpl
-├── out/                         # committed generated artifacts
-│   ├── go/codes/codes.gen.go
+├── codes/                       # committed Go package (go get target)
+│   └── codes.gen.go
+├── out/                         # committed non-Go artifacts
 │   ├── dart/lib/error_code.dart
 │   └── docs/CODES.md
 ├── Makefile

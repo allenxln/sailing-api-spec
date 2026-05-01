@@ -38,7 +38,7 @@ jobs:
 
             ```bash
             # Go backend
-            go get github.com/allenxln/sailing-api-spec/out/go@${{ github.ref_name }}
+            go get github.com/allenxln/sailing-api-spec/codes@${{ github.ref_name }}
             ```
 
             ```yaml
