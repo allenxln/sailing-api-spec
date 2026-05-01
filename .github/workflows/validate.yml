@@ -1,0 +1,28 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  contract-consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      # Fails if someone edited codes.yaml but didn't commit the regenerated out/.
+      # Also fails if the yaml is malformed (duplicate codes, out-of-range,
+      # missing zh/en/http) — the generator validates before rendering.
+      - name: yaml ↔ out/ in sync
+        run: make check
+
+      # Belt-and-suspenders: even if the yaml is valid, make sure the generated
+      # Go package compiles on its own as a standalone submodule.
+      - name: generated Go submodule builds
+        run: make test-go

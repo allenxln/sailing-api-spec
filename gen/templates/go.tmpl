@@ -1,0 +1,25 @@
+// Code generated from codes.yaml. DO NOT EDIT.
+// Edit codes.yaml then run `make gen`.
+
+package codes
+
+import "github.com/zeromicro/x/errors"
+
+var (
+{{- range .Codes }}
+	// {{ .Name }}: {{ .MsgZh }} ({{ .MsgEn }})
+	{{ .Name }} = errors.New({{ .Code }}, "{{ .MsgEn }}")
+{{- end }}
+)
+
+// HTTPStatus maps a code to its recommended HTTP status.
+func HTTPStatus(code int) int {
+	switch code {
+{{- range .Codes }}
+	case {{ .Code }}:
+		return {{ .HTTP }}
+{{- end }}
+	default:
+		return 500
+	}
+}

@@ -1,0 +1,54 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # needed for changelog diff
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      # Re-run the PR gate on the tagged commit — catches the pathological
+      # case where someone tagged a commit that was never PR-merged.
+      - name: verify contract still passes gate
+        run: |
+          make check
+          make test-go
+
+      # Go modules and Dart git-deps resolve directly against tags —
+      # no package registry publish step needed. Just make the GitHub
+      # Release visible so humans can see what shipped.
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          body: |
+            Consumers:
+
+            ```bash
+            # Go backend
+            go get github.com/allenxln/sailing-api-spec/out/go@${{ github.ref_name }}
+            ```
+
+            ```yaml
+            # Flutter (pubspec.yaml)
+            dependencies:
+              sailing_contract:
+                git:
+                  url: git@github.com:allenxln/sailing-api-spec.git
+                  path: out/dart
+                  ref: ${{ github.ref_name }}
+            ```
+
+            See [docs/CODES.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/out/docs/CODES.md) for the full error code table at this version.

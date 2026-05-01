@@ -1,0 +1,19 @@
+# Error code table
+
+> Generated from `codes.yaml`. Do not edit directly.
+
+## Ranges
+
+| Range | Start | End | Description |
+|-------|-------|-----|-------------|
+{{- range $name, $r := .Ranges }}
+| `{{ $name }}` | {{ $r.Start }} | {{ $r.End }} | {{ $r.Desc }} |
+{{- end }}
+
+## Codes
+
+| Code | Name | 中文 | English | HTTP | Range |
+|------|------|------|---------|------|-------|
+{{- range .Codes }}
+| {{ .Code }} | `{{ .Name }}` | {{ .MsgZh }} | {{ .MsgEn }} | {{ .HTTP }} | `{{ .Range }}` |
+{{- end }}

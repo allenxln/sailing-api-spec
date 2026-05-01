@@ -1,0 +1,40 @@
+version: 1
+
+ranges:
+  common:
+    start: 0
+    end: 9999
+    desc: Cross-service common codes
+  words_core:
+    start: 20000
+    end: 20999
+    desc: words_core business codes
+
+codes:
+  - code: 0
+    name: Success
+    range: common
+    msg_zh: 成功
+    msg_en: ok
+    http: 200
+
+  - code: 1001
+    name: LoginStatusExpired
+    range: common
+    msg_zh: 登录已过期
+    msg_en: auth status expired
+    http: 401
+
+  - code: 4001
+    name: BadRequest
+    range: common
+    msg_zh: 请求参数错误
+    msg_en: bad request
+    http: 400
+
+  - code: 5001
+    name: InternalServerError
+    range: common
+    msg_zh: 服务器内部错误
+    msg_en: internal server error
+    http: 500
