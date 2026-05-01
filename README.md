@@ -141,3 +141,44 @@ if (code == ErrorCode.loginStatusExpired) {
 ## 为什么生成到 `out/` / `codes/` 而不是只发一个 Go module
 
 因为消费方不止 Go。如果只有 Go，直接手写 const 也能活。yaml → 多语言产物这个设计的全部意义，就是**让 Flutter / 未来的 Web / 未来的文档站共享同一份真相**。
+
+## 灵感来源 / 设计参考
+
+这个仓库不是凭空拍脑袋的——它是几个业界成熟模式的组合，每一块都有公开的大厂实践可以对标。列出来方便未来接手的人理解"为什么这么设计"。
+
+### "错误码用 schema 作为 SSOT + 多语言生成"
+
+- **[Google APIs](https://github.com/googleapis/googleapis)** `google/rpc/code.proto` —— Google Cloud 全球 SDK 的错误码共享源
+- **[gRPC Status Codes](https://github.com/grpc/grpc/blob/master/src/proto/grpc/status/status.proto)** —— 跨语言标准错误码
+- **[Kubernetes API errors](https://github.com/kubernetes/apimachinery/blob/master/pkg/api/errors/errors.go)**
+- **[Stripe OpenAPI](https://github.com/stripe/openapi)** —— Stripe 11 种语言 SDK 都从这一份 spec 生成
+- **[Google AIP-193 Errors](https://google.aip.dev/193)** —— Google 内部 API 错误设计规范
+
+### Contract-first / Schema-first design
+
+- Martin Fowler —— [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
+- Shopify Engineering —— [Evolving API Pipelines at Shopify](https://shopify.engineering/evolving-api-pipelines)
+- **[Buf](https://buf.build/)** —— 专门做 proto schema 仓库托管 + 多语言生成的商业方案
+
+### goctl `--remote` 共享模板
+
+- go-zero 官方文档 —— [goctl 模板自定义](https://go-zero.dev/docs/tasks/cli/template)
+- **[`zeromicro/go-zero-template`](https://github.com/zeromicro/go-zero-template)** —— 官方样板，本仓的 `api/handler.tpl` 遵循它的目录约定
+
+### 老牌 schema-first 方案（思路一致，更重）
+
+- **[Protocol Buffers](https://protobuf.dev/)**
+- **[Apache Thrift](https://thrift.apache.org/)**
+- **[Apache Avro](https://avro.apache.org/)**
+
+### 业内定位
+
+这套方案在业界通常叫 **"API Contract Repository"** 或 **"Schema-First Code Generation"**。搜关键词：
+
+- `api contract repository`
+- `schema-first api design`
+- `error code registry`
+- `single source of truth api codes`
+- `cross-language code generation from schema`
+
+**诚实说明**：没有哪个开源项目可以直接照抄 —— 因为每家团队的错误码表、envelope 格式、技术栈（Go-zero + Flutter 的组合在中国团队里常见但英文圈偏主流的是 gRPC + TS/Python）都不一样。这个仓库是用上面的积木，拼给 Sailing 技术栈的一个最小实例。
