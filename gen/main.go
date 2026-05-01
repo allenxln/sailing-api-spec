@@ -6,7 +6,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"strings"
 	"text/template"
 	"unicode"
 
@@ -150,4 +149,3 @@ func die(format string, args ...any) {
 	os.Exit(1)
 }
 
-var _ = strings.ToLower // keep strings imported for future use
