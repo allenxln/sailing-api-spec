@@ -39,6 +39,9 @@ var goTmpl string
 //go:embed templates/dart.tmpl
 var dartTmpl string
 
+//go:embed templates/pubspec.tmpl
+var pubspecTmpl string
+
 //go:embed templates/md.tmpl
 var mdTmpl string
 
@@ -60,6 +63,7 @@ func main() {
 	mustRender(dartTmpl, "out/dart/lib/error_code.dart", spec, template.FuncMap{
 		"lowerCamel": lowerCamel,
 	})
+	mustRender(pubspecTmpl, "out/dart/pubspec.yaml", spec, nil)
 	mustRender(mdTmpl, "out/docs/CODES.md", spec, template.FuncMap{
 		"rangeDesc": func(name string) string { return spec.Ranges[name].Desc },
 	})
