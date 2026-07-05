@@ -19,3 +19,4 @@
 | 4001 | `BadRequest` | 请求参数错误 | bad request | 400 | `common` |
 | 5001 | `InternalServerError` | 服务器内部错误 | internal server error | 500 | `common` |
 | 20001 | `PackageNotFound` | 词包不存在 | package not found | 404 | `words_core` |
+| 21001 | `KnowledgeNameConflict` | 知识点名称已存在 | knowledge name already exists | 409 | `knowledge_core` |

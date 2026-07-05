@@ -49,3 +49,10 @@ codes:
     msg_zh: 词包不存在
     msg_en: package not found
     http: 404
+
+  - code: 21001
+    name: KnowledgeNameConflict
+    range: knowledge_core
+    msg_zh: 知识点名称已存在
+    msg_en: knowledge name already exists
+    http: 409

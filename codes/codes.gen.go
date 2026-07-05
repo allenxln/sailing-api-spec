@@ -16,6 +16,8 @@ var (
 	InternalServerError = errors.New(5001, "internal server error")
 	// PackageNotFound: 词包不存在 (package not found)
 	PackageNotFound = errors.New(20001, "package not found")
+	// KnowledgeNameConflict: 知识点名称已存在 (knowledge name already exists)
+	KnowledgeNameConflict = errors.New(21001, "knowledge name already exists")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -31,6 +33,8 @@ func HTTPStatus(code int) int {
 		return 500
 	case 20001:
 		return 404
+	case 21001:
+		return 409
 	default:
 		return 500
 	}

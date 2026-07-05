@@ -13,6 +13,8 @@ class ErrorCode {
   static const int internalServerError = 5001;
   /// 词包不存在 (package not found)
   static const int packageNotFound = 20001;
+  /// 知识点名称已存在 (knowledge name already exists)
+  static const int knowledgeNameConflict = 21001;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -22,6 +24,7 @@ class ErrorCode {
       case 4001: return '请求参数错误';
       case 5001: return '服务器内部错误';
       case 20001: return '词包不存在';
+      case 21001: return '知识点名称已存在';
       default: return '未知错误';
     }
   }
@@ -34,6 +37,7 @@ class ErrorCode {
       case 4001: return 'bad request';
       case 5001: return 'internal server error';
       case 20001: return 'package not found';
+      case 21001: return 'knowledge name already exists';
       default: return 'unknown error';
     }
   }
