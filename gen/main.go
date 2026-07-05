@@ -45,6 +45,9 @@ var pubspecTmpl string
 //go:embed templates/md.tmpl
 var mdTmpl string
 
+//go:embed templates/ts.tmpl
+var tsTmpl string
+
 func main() {
 	spec, err := parse("codes.yaml")
 	if err != nil {
@@ -59,15 +62,17 @@ func main() {
 	// Go lives at repo root so downstream services can
 	//   go get github.com/allenxln/sailing-api-spec/codes@vX.Y.Z
 	// without needing a separate nested go.mod + tag.
-	mustRender(goTmpl, "codes/codes.gen.go", spec, nil)
-	mustRender(dartTmpl, "out/dart/lib/error_code.dart", spec, template.FuncMap{
-		"lowerCamel": lowerCamel,
-	})
-	mustRender(pubspecTmpl, "out/dart/pubspec.yaml", spec, nil)
-	mustRender(mdTmpl, "out/docs/CODES.md", spec, template.FuncMap{
-		"rangeDesc": func(name string) string { return spec.Ranges[name].Desc },
-	})
-	fmt.Printf("OK: %d codes → 3 outputs\n", len(spec.Codes))
+	outputs := 0
+	render := func(tmpl, path string, funcs template.FuncMap) {
+		mustRender(tmpl, path, spec, funcs)
+		outputs++
+	}
+	render(goTmpl, "codes/codes.gen.go", nil)
+	render(dartTmpl, "out/dart/lib/error_code.dart", template.FuncMap{"lowerCamel": lowerCamel})
+	render(pubspecTmpl, "out/dart/pubspec.yaml", nil)
+	render(mdTmpl, "out/docs/CODES.md", template.FuncMap{"rangeDesc": func(name string) string { return spec.Ranges[name].Desc }})
+	render(tsTmpl, "out/ts/error_code.ts", nil)
+	fmt.Printf("OK: %d codes → %d files\n", len(spec.Codes), outputs)
 }
 
 func parse(path string) (Spec, error) {

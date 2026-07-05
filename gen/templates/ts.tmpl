@@ -1,0 +1,29 @@
+// GENERATED FROM codes.yaml. DO NOT EDIT.
+// Edit codes.yaml then run `make gen` in sailing-api-spec.
+
+export const ErrorCode = {
+{{- range .Codes }}
+  /** {{ .MsgZh }} ({{ .MsgEn }}) */
+  {{ .Name }}: {{ .Code }},
+{{- end }}
+} as const;
+
+/** 中文用户可见文案。 */
+export function messageZh(code: number): string {
+  switch (code) {
+{{- range .Codes }}
+    case {{ .Code }}: return '{{ .MsgZh }}';
+{{- end }}
+    default: return '未知错误';
+  }
+}
+
+/** English message. */
+export function messageEn(code: number): string {
+  switch (code) {
+{{- range .Codes }}
+    case {{ .Code }}: return '{{ .MsgEn }}';
+{{- end }}
+    default: return 'unknown error';
+  }
+}

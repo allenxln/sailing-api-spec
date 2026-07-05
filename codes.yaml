@@ -9,6 +9,10 @@ ranges:
     start: 20000
     end: 20999
     desc: words_core business codes
+  knowledge_core:
+    start: 21000
+    end: 21999
+    desc: knowledge_core business codes
 
 codes:
   - code: 0

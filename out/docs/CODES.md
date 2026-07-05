@@ -7,6 +7,7 @@
 | Range | Start | End | Description |
 |-------|-------|-----|-------------|
 | `common` | 0 | 9999 | Cross-service common codes |
+| `knowledge_core` | 21000 | 21999 | knowledge_core business codes |
 | `words_core` | 20000 | 20999 | words_core business codes |
 
 ## Codes

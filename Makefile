@@ -1,8 +1,9 @@
 .PHONY: gen check test-go fmt clean
 
 # Run the generator against codes.yaml. Produces:
-#   out/go/codes/codes.gen.go
+#   codes/codes.gen.go
 #   out/dart/lib/error_code.dart
+#   out/ts/error_code.ts
 #   out/docs/CODES.md
 gen:
 	go run ./gen
