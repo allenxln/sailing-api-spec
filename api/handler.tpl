@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/allenxln/sailing-api-spec/gozero"
-	"github.com/zeromicro/go-zero/rest/httpx"
-	{{.ImportPackages}}
+	{{if .HasRequest}}"github.com/zeromicro/go-zero/rest/httpx"
+	{{end}}{{.ImportPackages}}
 )
 
 {{if .HasDoc}}{{.Doc}}{{end}}
