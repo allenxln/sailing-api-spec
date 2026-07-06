@@ -56,3 +56,10 @@ codes:
     msg_zh: 知识点名称已存在
     msg_en: knowledge name already exists
     http: 409
+
+  - code: 21002
+    name: VerifyCodeInvalid
+    range: knowledge_core
+    msg_zh: 验证码错误或已过期
+    msg_en: verification code invalid or expired
+    http: 400

@@ -15,6 +15,8 @@ class ErrorCode {
   static const int packageNotFound = 20001;
   /// 知识点名称已存在 (knowledge name already exists)
   static const int knowledgeNameConflict = 21001;
+  /// 验证码错误或已过期 (verification code invalid or expired)
+  static const int verifyCodeInvalid = 21002;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -25,6 +27,7 @@ class ErrorCode {
       case 5001: return '服务器内部错误';
       case 20001: return '词包不存在';
       case 21001: return '知识点名称已存在';
+      case 21002: return '验证码错误或已过期';
       default: return '未知错误';
     }
   }
@@ -38,6 +41,7 @@ class ErrorCode {
       case 5001: return 'internal server error';
       case 20001: return 'package not found';
       case 21001: return 'knowledge name already exists';
+      case 21002: return 'verification code invalid or expired';
       default: return 'unknown error';
     }
   }

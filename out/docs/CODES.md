@@ -20,3 +20,4 @@
 | 5001 | `InternalServerError` | 服务器内部错误 | internal server error | 500 | `common` |
 | 20001 | `PackageNotFound` | 词包不存在 | package not found | 404 | `words_core` |
 | 21001 | `KnowledgeNameConflict` | 知识点名称已存在 | knowledge name already exists | 409 | `knowledge_core` |
+| 21002 | `VerifyCodeInvalid` | 验证码错误或已过期 | verification code invalid or expired | 400 | `knowledge_core` |

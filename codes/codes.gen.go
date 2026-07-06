@@ -18,6 +18,8 @@ var (
 	PackageNotFound = errors.New(20001, "package not found")
 	// KnowledgeNameConflict: 知识点名称已存在 (knowledge name already exists)
 	KnowledgeNameConflict = errors.New(21001, "knowledge name already exists")
+	// VerifyCodeInvalid: 验证码错误或已过期 (verification code invalid or expired)
+	VerifyCodeInvalid = errors.New(21002, "verification code invalid or expired")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -35,6 +37,8 @@ func HTTPStatus(code int) int {
 		return 404
 	case 21001:
 		return 409
+	case 21002:
+		return 400
 	default:
 		return 500
 	}
