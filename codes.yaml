@@ -29,6 +29,13 @@ codes:
     msg_en: auth status expired
     http: 401
 
+  - code: 1003
+    name: PermissionDenied
+    range: common
+    msg_zh: 权限不足
+    msg_en: permission denied
+    http: 403
+
   - code: 4001
     name: BadRequest
     range: common

@@ -6,6 +6,8 @@ export const ErrorCode = {
   Success: 0,
   /** 登录已过期 (auth status expired) */
   LoginStatusExpired: 1001,
+  /** 权限不足 (permission denied) */
+  PermissionDenied: 1003,
   /** 请求参数错误 (bad request) */
   BadRequest: 4001,
   /** 服务器内部错误 (internal server error) */
@@ -23,6 +25,7 @@ export function messageZh(code: number): string {
   switch (code) {
     case 0: return '成功';
     case 1001: return '登录已过期';
+    case 1003: return '权限不足';
     case 4001: return '请求参数错误';
     case 5001: return '服务器内部错误';
     case 20001: return '词包不存在';
@@ -37,6 +40,7 @@ export function messageEn(code: number): string {
   switch (code) {
     case 0: return 'ok';
     case 1001: return 'auth status expired';
+    case 1003: return 'permission denied';
     case 4001: return 'bad request';
     case 5001: return 'internal server error';
     case 20001: return 'package not found';

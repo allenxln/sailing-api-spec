@@ -10,6 +10,8 @@ var (
 	Success = errors.New(0, "ok")
 	// LoginStatusExpired: 登录已过期 (auth status expired)
 	LoginStatusExpired = errors.New(1001, "auth status expired")
+	// PermissionDenied: 权限不足 (permission denied)
+	PermissionDenied = errors.New(1003, "permission denied")
 	// BadRequest: 请求参数错误 (bad request)
 	BadRequest = errors.New(4001, "bad request")
 	// InternalServerError: 服务器内部错误 (internal server error)
@@ -29,6 +31,8 @@ func HTTPStatus(code int) int {
 		return 200
 	case 1001:
 		return 401
+	case 1003:
+		return 403
 	case 4001:
 		return 400
 	case 5001:

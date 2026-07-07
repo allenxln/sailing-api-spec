@@ -7,6 +7,8 @@ class ErrorCode {
   static const int success = 0;
   /// 登录已过期 (auth status expired)
   static const int loginStatusExpired = 1001;
+  /// 权限不足 (permission denied)
+  static const int permissionDenied = 1003;
   /// 请求参数错误 (bad request)
   static const int badRequest = 4001;
   /// 服务器内部错误 (internal server error)
@@ -23,6 +25,7 @@ class ErrorCode {
     switch (code) {
       case 0: return '成功';
       case 1001: return '登录已过期';
+      case 1003: return '权限不足';
       case 4001: return '请求参数错误';
       case 5001: return '服务器内部错误';
       case 20001: return '词包不存在';
@@ -37,6 +40,7 @@ class ErrorCode {
     switch (code) {
       case 0: return 'ok';
       case 1001: return 'auth status expired';
+      case 1003: return 'permission denied';
       case 4001: return 'bad request';
       case 5001: return 'internal server error';
       case 20001: return 'package not found';
