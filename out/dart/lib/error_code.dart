@@ -19,6 +19,14 @@ class ErrorCode {
   static const int knowledgeNameConflict = 21001;
   /// 验证码错误或已过期 (verification code invalid or expired)
   static const int verifyCodeInvalid = 21002;
+  /// 邮箱已被注册 (email already registered)
+  static const int emailAlreadyRegistered = 21003;
+  /// 邮箱或密码错误 (email or password wrong)
+  static const int loginFailed = 21004;
+  /// 验证码发送过于频繁，请稍后再试 (verification code sent too frequently)
+  static const int verifyCodeSendLimited = 21005;
+  /// 尝试次数过多，请稍后再试 (too many login attempts)
+  static const int tooManyLoginAttempts = 21006;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -31,6 +39,10 @@ class ErrorCode {
       case 20001: return '词包不存在';
       case 21001: return '知识点名称已存在';
       case 21002: return '验证码错误或已过期';
+      case 21003: return '邮箱已被注册';
+      case 21004: return '邮箱或密码错误';
+      case 21005: return '验证码发送过于频繁，请稍后再试';
+      case 21006: return '尝试次数过多，请稍后再试';
       default: return '未知错误';
     }
   }
@@ -46,6 +58,10 @@ class ErrorCode {
       case 20001: return 'package not found';
       case 21001: return 'knowledge name already exists';
       case 21002: return 'verification code invalid or expired';
+      case 21003: return 'email already registered';
+      case 21004: return 'email or password wrong';
+      case 21005: return 'verification code sent too frequently';
+      case 21006: return 'too many login attempts';
       default: return 'unknown error';
     }
   }
