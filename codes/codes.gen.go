@@ -30,6 +30,10 @@ var (
 	VerifyCodeSendLimited = errors.New(21005, "verification code sent too frequently")
 	// TooManyLoginAttempts: 尝试次数过多，请稍后再试 (too many login attempts)
 	TooManyLoginAttempts = errors.New(21006, "too many login attempts")
+	// TreeNodeInvalid: 树节点操作非法（移到自身子树下等） (tree node operation invalid)
+	TreeNodeInvalid = errors.New(21007, "tree node operation invalid")
+	// TreeNodeNameConflict: 同级下已存在同名节点 (sibling node name conflict)
+	TreeNodeNameConflict = errors.New(21008, "sibling node name conflict")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -59,6 +63,10 @@ func HTTPStatus(code int) int {
 		return 429
 	case 21006:
 		return 429
+	case 21007:
+		return 400
+	case 21008:
+		return 409
 	default:
 		return 500
 	}
