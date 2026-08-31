@@ -28,3 +28,4 @@
 | 21006 | `TooManyLoginAttempts` | 尝试次数过多，请稍后再试 | too many login attempts | 429 | `knowledge_core` |
 | 21007 | `TreeNodeInvalid` | 树节点操作非法（移到自身子树下等） | tree node operation invalid | 400 | `knowledge_core` |
 | 21008 | `TreeNodeNameConflict` | 同级下已存在同名节点 | sibling node name conflict | 409 | `knowledge_core` |
+| 21009 | `QuestionNotFound` | 题目不存在 | question not found | 404 | `knowledge_core` |

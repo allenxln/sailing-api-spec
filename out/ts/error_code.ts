@@ -30,6 +30,8 @@ export const ErrorCode = {
   TreeNodeInvalid: 21007,
   /** 同级下已存在同名节点 (sibling node name conflict) */
   TreeNodeNameConflict: 21008,
+  /** 题目不存在 (question not found) */
+  QuestionNotFound: 21009,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -49,6 +51,7 @@ export function messageZh(code: number): string {
     case 21006: return '尝试次数过多，请稍后再试';
     case 21007: return '树节点操作非法（移到自身子树下等）';
     case 21008: return '同级下已存在同名节点';
+    case 21009: return '题目不存在';
     default: return '未知错误';
   }
 }
@@ -70,6 +73,7 @@ export function messageEn(code: number): string {
     case 21006: return 'too many login attempts';
     case 21007: return 'tree node operation invalid';
     case 21008: return 'sibling node name conflict';
+    case 21009: return 'question not found';
     default: return 'unknown error';
   }
 }

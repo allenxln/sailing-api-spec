@@ -34,6 +34,8 @@ var (
 	TreeNodeInvalid = errors.New(21007, "tree node operation invalid")
 	// TreeNodeNameConflict: 同级下已存在同名节点 (sibling node name conflict)
 	TreeNodeNameConflict = errors.New(21008, "sibling node name conflict")
+	// QuestionNotFound: 题目不存在 (question not found)
+	QuestionNotFound = errors.New(21009, "question not found")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -67,6 +69,8 @@ func HTTPStatus(code int) int {
 		return 400
 	case 21008:
 		return 409
+	case 21009:
+		return 404
 	default:
 		return 500
 	}
