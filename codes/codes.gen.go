@@ -22,6 +22,14 @@ var (
 	KnowledgeNameConflict = errors.New(21001, "knowledge name already exists")
 	// VerifyCodeInvalid: 验证码错误或已过期 (verification code invalid or expired)
 	VerifyCodeInvalid = errors.New(21002, "verification code invalid or expired")
+	// EmailAlreadyRegistered: 邮箱已被注册 (email already registered)
+	EmailAlreadyRegistered = errors.New(21003, "email already registered")
+	// LoginFailed: 邮箱或密码错误 (email or password wrong)
+	LoginFailed = errors.New(21004, "email or password wrong")
+	// VerifyCodeSendLimited: 验证码发送过于频繁，请稍后再试 (verification code sent too frequently)
+	VerifyCodeSendLimited = errors.New(21005, "verification code sent too frequently")
+	// TooManyLoginAttempts: 尝试次数过多，请稍后再试 (too many login attempts)
+	TooManyLoginAttempts = errors.New(21006, "too many login attempts")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -43,6 +51,14 @@ func HTTPStatus(code int) int {
 		return 409
 	case 21002:
 		return 400
+	case 21003:
+		return 409
+	case 21004:
+		return 401
+	case 21005:
+		return 429
+	case 21006:
+		return 429
 	default:
 		return 500
 	}

@@ -22,3 +22,7 @@
 | 20001 | `PackageNotFound` | 词包不存在 | package not found | 404 | `words_core` |
 | 21001 | `KnowledgeNameConflict` | 知识点名称已存在 | knowledge name already exists | 409 | `knowledge_core` |
 | 21002 | `VerifyCodeInvalid` | 验证码错误或已过期 | verification code invalid or expired | 400 | `knowledge_core` |
+| 21003 | `EmailAlreadyRegistered` | 邮箱已被注册 | email already registered | 409 | `knowledge_core` |
+| 21004 | `LoginFailed` | 邮箱或密码错误 | email or password wrong | 401 | `knowledge_core` |
+| 21005 | `VerifyCodeSendLimited` | 验证码发送过于频繁，请稍后再试 | verification code sent too frequently | 429 | `knowledge_core` |
+| 21006 | `TooManyLoginAttempts` | 尝试次数过多，请稍后再试 | too many login attempts | 429 | `knowledge_core` |
