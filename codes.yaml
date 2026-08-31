@@ -112,3 +112,10 @@ codes:
     msg_zh: 同级下已存在同名节点
     msg_en: sibling node name conflict
     http: 409
+
+  - code: 21009
+    name: QuestionNotFound
+    range: knowledge_core
+    msg_zh: 题目不存在
+    msg_en: question not found
+    http: 404
