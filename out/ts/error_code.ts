@@ -26,6 +26,10 @@ export const ErrorCode = {
   VerifyCodeSendLimited: 21005,
   /** 尝试次数过多，请稍后再试 (too many login attempts) */
   TooManyLoginAttempts: 21006,
+  /** 树节点操作非法（移到自身子树下等） (tree node operation invalid) */
+  TreeNodeInvalid: 21007,
+  /** 同级下已存在同名节点 (sibling node name conflict) */
+  TreeNodeNameConflict: 21008,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -43,6 +47,8 @@ export function messageZh(code: number): string {
     case 21004: return '邮箱或密码错误';
     case 21005: return '验证码发送过于频繁，请稍后再试';
     case 21006: return '尝试次数过多，请稍后再试';
+    case 21007: return '树节点操作非法（移到自身子树下等）';
+    case 21008: return '同级下已存在同名节点';
     default: return '未知错误';
   }
 }
@@ -62,6 +68,8 @@ export function messageEn(code: number): string {
     case 21004: return 'email or password wrong';
     case 21005: return 'verification code sent too frequently';
     case 21006: return 'too many login attempts';
+    case 21007: return 'tree node operation invalid';
+    case 21008: return 'sibling node name conflict';
     default: return 'unknown error';
   }
 }
