@@ -36,6 +36,8 @@ var (
 	TreeNodeNameConflict = errors.New(21008, "sibling node name conflict")
 	// QuestionNotFound: 题目不存在 (question not found)
 	QuestionNotFound = errors.New(21009, "question not found")
+	// VerifyTokenInvalid: 验证链接无效或已过期 (verification token invalid or expired)
+	VerifyTokenInvalid = errors.New(21010, "verification token invalid or expired")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -71,6 +73,8 @@ func HTTPStatus(code int) int {
 		return 409
 	case 21009:
 		return 404
+	case 21010:
+		return 400
 	default:
 		return 500
 	}

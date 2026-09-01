@@ -32,6 +32,8 @@ export const ErrorCode = {
   TreeNodeNameConflict: 21008,
   /** 题目不存在 (question not found) */
   QuestionNotFound: 21009,
+  /** 验证链接无效或已过期 (verification token invalid or expired) */
+  VerifyTokenInvalid: 21010,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -52,6 +54,7 @@ export function messageZh(code: number): string {
     case 21007: return '树节点操作非法（移到自身子树下等）';
     case 21008: return '同级下已存在同名节点';
     case 21009: return '题目不存在';
+    case 21010: return '验证链接无效或已过期';
     default: return '未知错误';
   }
 }
@@ -74,6 +77,7 @@ export function messageEn(code: number): string {
     case 21007: return 'tree node operation invalid';
     case 21008: return 'sibling node name conflict';
     case 21009: return 'question not found';
+    case 21010: return 'verification token invalid or expired';
     default: return 'unknown error';
   }
 }
