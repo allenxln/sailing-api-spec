@@ -29,3 +29,4 @@
 | 21007 | `TreeNodeInvalid` | 树节点操作非法（移到自身子树下等） | tree node operation invalid | 400 | `tutor_core` |
 | 21008 | `TreeNodeNameConflict` | 同级下已存在同名节点 | sibling node name conflict | 409 | `tutor_core` |
 | 21009 | `QuestionNotFound` | 题目不存在 | question not found | 404 | `tutor_core` |
+| 21010 | `VerifyTokenInvalid` | 验证链接无效或已过期 | verification token invalid or expired | 400 | `tutor_core` |

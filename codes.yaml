@@ -119,3 +119,10 @@ codes:
     msg_zh: 题目不存在
     msg_en: question not found
     http: 404
+
+  - code: 21010
+    name: VerifyTokenInvalid
+    range: tutor_core
+    msg_zh: 验证链接无效或已过期
+    msg_en: verification token invalid or expired
+    http: 400
