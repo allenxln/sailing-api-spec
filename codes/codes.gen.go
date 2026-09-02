@@ -38,6 +38,12 @@ var (
 	QuestionNotFound = errors.New(21009, "question not found")
 	// VerifyTokenInvalid: 验证链接无效或已过期 (verification token invalid or expired)
 	VerifyTokenInvalid = errors.New(21010, "verification token invalid or expired")
+	// TreeNotFound: 知识树不存在 (tree not found)
+	TreeNotFound = errors.New(21011, "tree not found")
+	// TreeAlreadyExists: 同维度知识树已存在 (tree with same dimensions already exists)
+	TreeAlreadyExists = errors.New(21012, "tree with same dimensions already exists")
+	// KnowledgeAlreadyMounted: 该知识点已挂载在此节点 (knowledge point already mounted on this node)
+	KnowledgeAlreadyMounted = errors.New(21013, "knowledge point already mounted on this node")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -75,6 +81,12 @@ func HTTPStatus(code int) int {
 		return 404
 	case 21010:
 		return 400
+	case 21011:
+		return 404
+	case 21012:
+		return 409
+	case 21013:
+		return 409
 	default:
 		return 500
 	}

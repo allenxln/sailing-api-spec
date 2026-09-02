@@ -35,6 +35,12 @@ class ErrorCode {
   static const int questionNotFound = 21009;
   /// 验证链接无效或已过期 (verification token invalid or expired)
   static const int verifyTokenInvalid = 21010;
+  /// 知识树不存在 (tree not found)
+  static const int treeNotFound = 21011;
+  /// 同维度知识树已存在 (tree with same dimensions already exists)
+  static const int treeAlreadyExists = 21012;
+  /// 该知识点已挂载在此节点 (knowledge point already mounted on this node)
+  static const int knowledgeAlreadyMounted = 21013;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -55,6 +61,9 @@ class ErrorCode {
       case 21008: return '同级下已存在同名节点';
       case 21009: return '题目不存在';
       case 21010: return '验证链接无效或已过期';
+      case 21011: return '知识树不存在';
+      case 21012: return '同维度知识树已存在';
+      case 21013: return '该知识点已挂载在此节点';
       default: return '未知错误';
     }
   }
@@ -78,6 +87,9 @@ class ErrorCode {
       case 21008: return 'sibling node name conflict';
       case 21009: return 'question not found';
       case 21010: return 'verification token invalid or expired';
+      case 21011: return 'tree not found';
+      case 21012: return 'tree with same dimensions already exists';
+      case 21013: return 'knowledge point already mounted on this node';
       default: return 'unknown error';
     }
   }
