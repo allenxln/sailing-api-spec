@@ -126,3 +126,24 @@ codes:
     msg_zh: 验证链接无效或已过期
     msg_en: verification token invalid or expired
     http: 400
+
+  - code: 21011
+    name: TreeNotFound
+    range: tutor_core
+    msg_zh: 知识树不存在
+    msg_en: tree not found
+    http: 404
+
+  - code: 21012
+    name: TreeAlreadyExists
+    range: tutor_core
+    msg_zh: 同维度知识树已存在
+    msg_en: tree with same dimensions already exists
+    http: 409
+
+  - code: 21013
+    name: KnowledgeAlreadyMounted
+    range: tutor_core
+    msg_zh: 该知识点已挂载在此节点
+    msg_en: knowledge point already mounted on this node
+    http: 409

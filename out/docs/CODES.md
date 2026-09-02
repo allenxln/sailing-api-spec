@@ -30,3 +30,6 @@
 | 21008 | `TreeNodeNameConflict` | 同级下已存在同名节点 | sibling node name conflict | 409 | `tutor_core` |
 | 21009 | `QuestionNotFound` | 题目不存在 | question not found | 404 | `tutor_core` |
 | 21010 | `VerifyTokenInvalid` | 验证链接无效或已过期 | verification token invalid or expired | 400 | `tutor_core` |
+| 21011 | `TreeNotFound` | 知识树不存在 | tree not found | 404 | `tutor_core` |
+| 21012 | `TreeAlreadyExists` | 同维度知识树已存在 | tree with same dimensions already exists | 409 | `tutor_core` |
+| 21013 | `KnowledgeAlreadyMounted` | 该知识点已挂载在此节点 | knowledge point already mounted on this node | 409 | `tutor_core` |
