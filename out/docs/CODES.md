@@ -33,3 +33,4 @@
 | 21011 | `TreeNotFound` | 知识树不存在 | tree not found | 404 | `tutor_core` |
 | 21012 | `TreeAlreadyExists` | 同维度知识树已存在 | tree with same dimensions already exists | 409 | `tutor_core` |
 | 21013 | `KnowledgeAlreadyMounted` | 该知识点已挂载在此节点 | knowledge point already mounted on this node | 409 | `tutor_core` |
+| 21014 | `PaperNotFound` | 试卷不存在 | paper not found | 404 | `tutor_core` |

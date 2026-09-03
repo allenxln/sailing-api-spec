@@ -147,3 +147,10 @@ codes:
     msg_zh: 该知识点已挂载在此节点
     msg_en: knowledge point already mounted on this node
     http: 409
+
+  - code: 21014
+    name: PaperNotFound
+    range: tutor_core
+    msg_zh: 试卷不存在
+    msg_en: paper not found
+    http: 404
