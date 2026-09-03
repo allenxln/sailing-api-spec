@@ -40,6 +40,8 @@ export const ErrorCode = {
   TreeAlreadyExists: 21012,
   /** 该知识点已挂载在此节点 (knowledge point already mounted on this node) */
   KnowledgeAlreadyMounted: 21013,
+  /** 试卷不存在 (paper not found) */
+  PaperNotFound: 21014,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -64,6 +66,7 @@ export function messageZh(code: number): string {
     case 21011: return '知识树不存在';
     case 21012: return '同维度知识树已存在';
     case 21013: return '该知识点已挂载在此节点';
+    case 21014: return '试卷不存在';
     default: return '未知错误';
   }
 }
@@ -90,6 +93,7 @@ export function messageEn(code: number): string {
     case 21011: return 'tree not found';
     case 21012: return 'tree with same dimensions already exists';
     case 21013: return 'knowledge point already mounted on this node';
+    case 21014: return 'paper not found';
     default: return 'unknown error';
   }
 }

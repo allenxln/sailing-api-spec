@@ -44,6 +44,8 @@ var (
 	TreeAlreadyExists = errors.New(21012, "tree with same dimensions already exists")
 	// KnowledgeAlreadyMounted: 该知识点已挂载在此节点 (knowledge point already mounted on this node)
 	KnowledgeAlreadyMounted = errors.New(21013, "knowledge point already mounted on this node")
+	// PaperNotFound: 试卷不存在 (paper not found)
+	PaperNotFound = errors.New(21014, "paper not found")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -87,6 +89,8 @@ func HTTPStatus(code int) int {
 		return 409
 	case 21013:
 		return 409
+	case 21014:
+		return 404
 	default:
 		return 500
 	}
