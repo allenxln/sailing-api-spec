@@ -154,3 +154,24 @@ codes:
     msg_zh: 试卷不存在
     msg_en: paper not found
     http: 404
+
+  - code: 21015
+    name: QuestionImportNotFound
+    range: tutor_core
+    msg_zh: 题目导入批次不存在
+    msg_en: question import not found
+    http: 404
+
+  - code: 21016
+    name: QuestionDraftNotFound
+    range: tutor_core
+    msg_zh: 题目草稿不存在
+    msg_en: question draft not found
+    http: 404
+
+  - code: 21017
+    name: ParseFailed
+    range: tutor_core
+    msg_zh: 题目解析失败
+    msg_en: question parse failed
+    http: 502

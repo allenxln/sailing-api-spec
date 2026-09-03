@@ -42,6 +42,12 @@ export const ErrorCode = {
   KnowledgeAlreadyMounted: 21013,
   /** 试卷不存在 (paper not found) */
   PaperNotFound: 21014,
+  /** 题目导入批次不存在 (question import not found) */
+  QuestionImportNotFound: 21015,
+  /** 题目草稿不存在 (question draft not found) */
+  QuestionDraftNotFound: 21016,
+  /** 题目解析失败 (question parse failed) */
+  ParseFailed: 21017,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -67,6 +73,9 @@ export function messageZh(code: number): string {
     case 21012: return '同维度知识树已存在';
     case 21013: return '该知识点已挂载在此节点';
     case 21014: return '试卷不存在';
+    case 21015: return '题目导入批次不存在';
+    case 21016: return '题目草稿不存在';
+    case 21017: return '题目解析失败';
     default: return '未知错误';
   }
 }
@@ -94,6 +103,9 @@ export function messageEn(code: number): string {
     case 21012: return 'tree with same dimensions already exists';
     case 21013: return 'knowledge point already mounted on this node';
     case 21014: return 'paper not found';
+    case 21015: return 'question import not found';
+    case 21016: return 'question draft not found';
+    case 21017: return 'question parse failed';
     default: return 'unknown error';
   }
 }

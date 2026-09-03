@@ -43,6 +43,12 @@ class ErrorCode {
   static const int knowledgeAlreadyMounted = 21013;
   /// 试卷不存在 (paper not found)
   static const int paperNotFound = 21014;
+  /// 题目导入批次不存在 (question import not found)
+  static const int questionImportNotFound = 21015;
+  /// 题目草稿不存在 (question draft not found)
+  static const int questionDraftNotFound = 21016;
+  /// 题目解析失败 (question parse failed)
+  static const int parseFailed = 21017;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -67,6 +73,9 @@ class ErrorCode {
       case 21012: return '同维度知识树已存在';
       case 21013: return '该知识点已挂载在此节点';
       case 21014: return '试卷不存在';
+      case 21015: return '题目导入批次不存在';
+      case 21016: return '题目草稿不存在';
+      case 21017: return '题目解析失败';
       default: return '未知错误';
     }
   }
@@ -94,6 +103,9 @@ class ErrorCode {
       case 21012: return 'tree with same dimensions already exists';
       case 21013: return 'knowledge point already mounted on this node';
       case 21014: return 'paper not found';
+      case 21015: return 'question import not found';
+      case 21016: return 'question draft not found';
+      case 21017: return 'question parse failed';
       default: return 'unknown error';
     }
   }

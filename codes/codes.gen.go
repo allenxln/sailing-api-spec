@@ -46,6 +46,12 @@ var (
 	KnowledgeAlreadyMounted = errors.New(21013, "knowledge point already mounted on this node")
 	// PaperNotFound: 试卷不存在 (paper not found)
 	PaperNotFound = errors.New(21014, "paper not found")
+	// QuestionImportNotFound: 题目导入批次不存在 (question import not found)
+	QuestionImportNotFound = errors.New(21015, "question import not found")
+	// QuestionDraftNotFound: 题目草稿不存在 (question draft not found)
+	QuestionDraftNotFound = errors.New(21016, "question draft not found")
+	// ParseFailed: 题目解析失败 (question parse failed)
+	ParseFailed = errors.New(21017, "question parse failed")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -91,6 +97,12 @@ func HTTPStatus(code int) int {
 		return 409
 	case 21014:
 		return 404
+	case 21015:
+		return 404
+	case 21016:
+		return 404
+	case 21017:
+		return 502
 	default:
 		return 500
 	}
