@@ -34,3 +34,6 @@
 | 21012 | `TreeAlreadyExists` | 同维度知识树已存在 | tree with same dimensions already exists | 409 | `tutor_core` |
 | 21013 | `KnowledgeAlreadyMounted` | 该知识点已挂载在此节点 | knowledge point already mounted on this node | 409 | `tutor_core` |
 | 21014 | `PaperNotFound` | 试卷不存在 | paper not found | 404 | `tutor_core` |
+| 21015 | `QuestionImportNotFound` | 题目导入批次不存在 | question import not found | 404 | `tutor_core` |
+| 21016 | `QuestionDraftNotFound` | 题目草稿不存在 | question draft not found | 404 | `tutor_core` |
+| 21017 | `ParseFailed` | 题目解析失败 | question parse failed | 502 | `tutor_core` |
