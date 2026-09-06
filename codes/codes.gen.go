@@ -52,6 +52,8 @@ var (
 	QuestionDraftNotFound = errors.New(21016, "question draft not found")
 	// ParseFailed: 题目解析失败 (question parse failed)
 	ParseFailed = errors.New(21017, "question parse failed")
+	// SubjectMismatch: 挂载学科不一致 (subject mismatch)
+	SubjectMismatch = errors.New(21018, "subject mismatch")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -103,6 +105,8 @@ func HTTPStatus(code int) int {
 		return 404
 	case 21017:
 		return 502
+	case 21018:
+		return 409
 	default:
 		return 500
 	}
