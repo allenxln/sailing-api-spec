@@ -37,3 +37,4 @@
 | 21015 | `QuestionImportNotFound` | 题目导入批次不存在 | question import not found | 404 | `tutor_core` |
 | 21016 | `QuestionDraftNotFound` | 题目草稿不存在 | question draft not found | 404 | `tutor_core` |
 | 21017 | `ParseFailed` | 题目解析失败 | question parse failed | 502 | `tutor_core` |
+| 21018 | `SubjectMismatch` | 挂载学科不一致 | subject mismatch | 409 | `tutor_core` |

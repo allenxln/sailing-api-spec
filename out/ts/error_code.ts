@@ -48,6 +48,8 @@ export const ErrorCode = {
   QuestionDraftNotFound: 21016,
   /** 题目解析失败 (question parse failed) */
   ParseFailed: 21017,
+  /** 挂载学科不一致 (subject mismatch) */
+  SubjectMismatch: 21018,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -76,6 +78,7 @@ export function messageZh(code: number): string {
     case 21015: return '题目导入批次不存在';
     case 21016: return '题目草稿不存在';
     case 21017: return '题目解析失败';
+    case 21018: return '挂载学科不一致';
     default: return '未知错误';
   }
 }
@@ -106,6 +109,7 @@ export function messageEn(code: number): string {
     case 21015: return 'question import not found';
     case 21016: return 'question draft not found';
     case 21017: return 'question parse failed';
+    case 21018: return 'subject mismatch';
     default: return 'unknown error';
   }
 }
