@@ -54,6 +54,8 @@ var (
 	ParseFailed = errors.New(21017, "question parse failed")
 	// SubjectMismatch: 挂载学科不一致 (subject mismatch)
 	SubjectMismatch = errors.New(21018, "subject mismatch")
+	// QuestionDuplicateSuspected: 疑似重复题目 (duplicate question suspected)
+	QuestionDuplicateSuspected = errors.New(21019, "duplicate question suspected")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -106,6 +108,8 @@ func HTTPStatus(code int) int {
 	case 21017:
 		return 502
 	case 21018:
+		return 409
+	case 21019:
 		return 409
 	default:
 		return 500

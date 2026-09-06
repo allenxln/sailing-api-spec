@@ -51,6 +51,8 @@ class ErrorCode {
   static const int parseFailed = 21017;
   /// 挂载学科不一致 (subject mismatch)
   static const int subjectMismatch = 21018;
+  /// 疑似重复题目 (duplicate question suspected)
+  static const int questionDuplicateSuspected = 21019;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -79,6 +81,7 @@ class ErrorCode {
       case 21016: return '题目草稿不存在';
       case 21017: return '题目解析失败';
       case 21018: return '挂载学科不一致';
+      case 21019: return '疑似重复题目';
       default: return '未知错误';
     }
   }
@@ -110,6 +113,7 @@ class ErrorCode {
       case 21016: return 'question draft not found';
       case 21017: return 'question parse failed';
       case 21018: return 'subject mismatch';
+      case 21019: return 'duplicate question suspected';
       default: return 'unknown error';
     }
   }

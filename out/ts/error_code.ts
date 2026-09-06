@@ -50,6 +50,8 @@ export const ErrorCode = {
   ParseFailed: 21017,
   /** 挂载学科不一致 (subject mismatch) */
   SubjectMismatch: 21018,
+  /** 疑似重复题目 (duplicate question suspected) */
+  QuestionDuplicateSuspected: 21019,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -79,6 +81,7 @@ export function messageZh(code: number): string {
     case 21016: return '题目草稿不存在';
     case 21017: return '题目解析失败';
     case 21018: return '挂载学科不一致';
+    case 21019: return '疑似重复题目';
     default: return '未知错误';
   }
 }
@@ -110,6 +113,7 @@ export function messageEn(code: number): string {
     case 21016: return 'question draft not found';
     case 21017: return 'question parse failed';
     case 21018: return 'subject mismatch';
+    case 21019: return 'duplicate question suspected';
     default: return 'unknown error';
   }
 }
