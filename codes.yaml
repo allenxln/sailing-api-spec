@@ -175,3 +175,10 @@ codes:
     msg_zh: 题目解析失败
     msg_en: question parse failed
     http: 502
+
+  - code: 21018
+    name: SubjectMismatch
+    range: tutor_core
+    msg_zh: 挂载学科不一致
+    msg_en: subject mismatch
+    http: 409
