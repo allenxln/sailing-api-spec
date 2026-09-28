@@ -196,3 +196,17 @@ codes:
     msg_zh: 试卷已被修改，请刷新后重试
     msg_en: paper revision conflict
     http: 409
+
+  - code: 21021
+    name: AttemptNotFound
+    range: tutor_core
+    msg_zh: 作答记录不存在
+    msg_en: attempt not found
+    http: 404
+
+  - code: 21022
+    name: AttemptRevisionConflict
+    range: tutor_core
+    msg_zh: 作答记录已更新，请重新加载后继续
+    msg_en: attempt revision conflict
+    http: 409

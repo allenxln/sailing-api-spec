@@ -40,3 +40,5 @@
 | 21018 | `SubjectMismatch` | 挂载学科不一致 | subject mismatch | 409 | `tutor_core` |
 | 21019 | `QuestionDuplicateSuspected` | 疑似重复题目 | duplicate question suspected | 409 | `tutor_core` |
 | 21020 | `PaperRevisionConflict` | 试卷已被修改，请刷新后重试 | paper revision conflict | 409 | `tutor_core` |
+| 21021 | `AttemptNotFound` | 作答记录不存在 | attempt not found | 404 | `tutor_core` |
+| 21022 | `AttemptRevisionConflict` | 作答记录已更新，请重新加载后继续 | attempt revision conflict | 409 | `tutor_core` |

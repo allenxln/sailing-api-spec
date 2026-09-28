@@ -55,6 +55,10 @@ class ErrorCode {
   static const int questionDuplicateSuspected = 21019;
   /// 试卷已被修改，请刷新后重试 (paper revision conflict)
   static const int paperRevisionConflict = 21020;
+  /// 作答记录不存在 (attempt not found)
+  static const int attemptNotFound = 21021;
+  /// 作答记录已更新，请重新加载后继续 (attempt revision conflict)
+  static const int attemptRevisionConflict = 21022;
 
   /// Returns the Chinese user-facing message for a given code.
   static String messageZh(int code) {
@@ -85,6 +89,8 @@ class ErrorCode {
       case 21018: return '挂载学科不一致';
       case 21019: return '疑似重复题目';
       case 21020: return '试卷已被修改，请刷新后重试';
+      case 21021: return '作答记录不存在';
+      case 21022: return '作答记录已更新，请重新加载后继续';
       default: return '未知错误';
     }
   }
@@ -118,6 +124,8 @@ class ErrorCode {
       case 21018: return 'subject mismatch';
       case 21019: return 'duplicate question suspected';
       case 21020: return 'paper revision conflict';
+      case 21021: return 'attempt not found';
+      case 21022: return 'attempt revision conflict';
       default: return 'unknown error';
     }
   }
