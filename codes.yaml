@@ -189,3 +189,10 @@ codes:
     msg_zh: 疑似重复题目
     msg_en: duplicate question suspected
     http: 409
+
+  - code: 21020
+    name: PaperRevisionConflict
+    range: tutor_core
+    msg_zh: 试卷已被修改，请刷新后重试
+    msg_en: paper revision conflict
+    http: 409

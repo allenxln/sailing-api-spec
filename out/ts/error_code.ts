@@ -52,6 +52,8 @@ export const ErrorCode = {
   SubjectMismatch: 21018,
   /** 疑似重复题目 (duplicate question suspected) */
   QuestionDuplicateSuspected: 21019,
+  /** 试卷已被修改，请刷新后重试 (paper revision conflict) */
+  PaperRevisionConflict: 21020,
 } as const;
 
 /** 中文用户可见文案。 */
@@ -82,6 +84,7 @@ export function messageZh(code: number): string {
     case 21017: return '题目解析失败';
     case 21018: return '挂载学科不一致';
     case 21019: return '疑似重复题目';
+    case 21020: return '试卷已被修改，请刷新后重试';
     default: return '未知错误';
   }
 }
@@ -114,6 +117,7 @@ export function messageEn(code: number): string {
     case 21017: return 'question parse failed';
     case 21018: return 'subject mismatch';
     case 21019: return 'duplicate question suspected';
+    case 21020: return 'paper revision conflict';
     default: return 'unknown error';
   }
 }
