@@ -9,10 +9,10 @@ gen:
 	go run ./gen
 
 # CI gate: yaml → generated outputs must be in sync. Forces anyone editing
-# codes.yaml to also commit the regenerated out/ tree.
+# codes.yaml to also commit all regenerated Go and client outputs.
 check: gen
-	@git diff --exit-code -- out/ \
-	  || (echo "ERROR: out/ is out of sync with codes.yaml. Run 'make gen' and commit."; exit 1)
+	@git diff --exit-code -- codes/ out/ \
+	  || (echo "ERROR: generated outputs are out of sync with codes.yaml. Run 'make gen' and commit."; exit 1)
 
 # Verify the generated Go package compiles. Catches template drift
 # (e.g. syntax error in a template) before downstream services pull the tag.

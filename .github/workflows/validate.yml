@@ -16,10 +16,10 @@ jobs:
           go-version: '1.25'
           cache: true
 
-      # Fails if someone edited codes.yaml but didn't commit the regenerated out/.
+      # Fails if generated Go or client outputs were not committed with their source.
       # Also fails if the yaml is malformed (duplicate codes, out-of-range,
       # missing zh/en/http) — the generator validates before rendering.
-      - name: yaml ↔ out/ in sync
+      - name: yaml ↔ generated outputs in sync
         run: make check
 
       # Belt-and-suspenders: even if the yaml is valid, make sure the generated
