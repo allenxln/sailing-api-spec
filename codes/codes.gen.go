@@ -56,6 +56,12 @@ var (
 	SubjectMismatch = errors.New(21018, "subject mismatch")
 	// QuestionDuplicateSuspected: 疑似重复题目 (duplicate question suspected)
 	QuestionDuplicateSuspected = errors.New(21019, "duplicate question suspected")
+	// PaperRevisionConflict: 试卷已被修改，请刷新后重试 (paper revision conflict)
+	PaperRevisionConflict = errors.New(21020, "paper revision conflict")
+	// AttemptNotFound: 作答记录不存在 (attempt not found)
+	AttemptNotFound = errors.New(21021, "attempt not found")
+	// AttemptRevisionConflict: 作答记录已更新，请重新加载后继续 (attempt revision conflict)
+	AttemptRevisionConflict = errors.New(21022, "attempt revision conflict")
 )
 
 // HTTPStatus maps a code to its recommended HTTP status.
@@ -110,6 +116,12 @@ func HTTPStatus(code int) int {
 	case 21018:
 		return 409
 	case 21019:
+		return 409
+	case 21020:
+		return 409
+	case 21021:
+		return 404
+	case 21022:
 		return 409
 	default:
 		return 500
